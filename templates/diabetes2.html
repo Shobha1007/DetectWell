@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Diabetes Disease 
+    Predictor</title>
+    <meta property="og:title" content="Spiffy Naive Coyote" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="{% static 'style/heartstyle.css' %}" />
+  </head>
+  <body>
+    <div>
+      <link href="{% static 'style/diabeteshome.css' %}" rel="stylesheet" />
+
+      <div class="home-container">
+        <div class="home-container01">
+          <h1 class="head">Diabetes Disease Predictor</h1>
+          <button class="home-button button" onclick="window.location.href = '/'">Home</button>
+        </div>
+        <div class="home-container02">
+          <h1 class="home-text01">Attribute Information</h1>
+          <ul class="home-ul list">
+
+            <li class="list-item"><span> Age: Age (years)</span></li>
+                
+            <li class="list-item"><span>Pregnancies: To express the Number of pregnancies</span></li>
+            <li class="list-item"><span>Glucose: To express the Glucose level in blood</span></li>
+            <li class="list-item"><span> Blood pressure:Diastolic blood pressure (mm Hg)</span></li>
+            <li class="list-item"><span>SkinThickness:Triceps skin fold thickness (mm)</span>
+            <li class="list-item"><span>Insulin: 2-Hour serum insulin (mu U/ml)</span></li>
+            <li class="list-item"><span> BMI: Body mass index (weight in kg/(height in m)^2)</span></li>
+            <li class="list-item"><span>DiabetesPedigreeFunction: Diabetes pedigree function</span></li>
+            
+            
+                
+
+
+            
+          </ul>
+          <img
+            src="{% static 'img/diabetesbg.jpg' %}"
+            alt="image"
+            class="home-image"
+          />
+
+          
+        </div>
+        <div class="home-container04">
+          <div class="home-container05">
+            <form class="home-form"
+            method="POST">
+                {% csrf_token%}
+              <h1 class="home-text05">Fill the Details</h1>
+              <div class="homeContainers">
+              <div class="home-container06 hm">
+                <div class="home-container07 lefthomecontainers" >
+                  <label class="home-text06" >AGE</label>
+                  <input
+                    
+                  type="number" id="age" min="0" max="150" name="age"
+                    class="home-textinput input"
+                  />
+                </div>
+                <div class="home-container08">
+                  <label class="home-text07">PREGNANCIES</label>
+                  <input
+                    
+                  type="number" min="0" max="10" name="Pregnancies" id="Pregnancies"
+                    class="home-textinput01 input"
+                  />
+                </div>
+              </div>
+              <div class="home-container09 hm">
+                <div class="home-container10  lefthomecontainers" >
+                  <label class="home-text08">GLUCOSE</label>
+                  <input
+                    type="number" name="Glucose" id="Glucose" min="0" 
+                    
+                    class="home-textinput02 input"
+                  />
+                </div>
+                <div class="home-container11">
+                  <label class="home-text09">BLOOD PRESSURE</label>
+                  <input
+                  name="BloodPressure" id="BloodPressure" type="number" min="0"
+                    class="home-textinput03 input"
+                  />
+                </div>
+              </div>
+              <div class="home-container12 hm">
+                <div class="home-container13  lefthomecontainers" >
+                  <label class="home-text10">SKIN THICKNESS</label>
+                  <input
+                  name="SkinThickness" id="SkinThickness" type="number" min="0" step="1"
+                    class="home-textinput04 input"
+                  />
+                </div>
+                <div class="home-container14">
+                  <label class="home-text11">INSULIN</label>
+                  <input
+                  type="number" min="0" name="Insulin" id="Insulin"
+                    class="home-textinput05 input"
+                  />
+                </div>
+              </div>
+              <div class="home-container15 hm">
+                <div class="home-container16  lefthomecontainers">
+                  <label class="home-text12">BMI</label>
+                  <input
+                  type="number" name="BMI" min="0" id="BMI" step = "0.01" 
+                    class="home-textinput06 input"
+                  />
+                </div>
+                <div class="home-container17">
+                  <label class="home-text13">DIABETES PEDIGREE FUNCTION</label>
+                  <input
+                  name="DiabetesPedigreeFunction" id="DiabetesPedigreeFunction" type="number" min="0" step=".0001" 
+                    class="home-textinput07 input"
+                  />
+                </div>
+              </div>
+              
+            </div>
+              
+              <div class="home-container40"></div>
+              <button type = "submit "class="home-button1 button"  value="SUBMIT">SUBMIT</button>
+            </form>
+          </div>
+        </div>
+        <div class="home-container41">
+        {% if result %}
+            <h1>{{result}}</h1>
+         {% endif %}
+          
+        </div>
+        <div class="home-container42">
+          <span class="home-text29"><h1>Thanks For Visiting</h1></span>
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

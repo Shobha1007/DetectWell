@@ -1,0 +1,152 @@
+<html lang="en">  
+ <head>  
+  
+   <meta charset="UTF-8">  
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+ <!--  <link rel="stylesheet" href="styles.css">-->  
+   <title>Diabetes Prediction</title>  
+ </head>  
+ 
+ <body>  
+ <form method="POST">  
+   <div class="wrapper">  
+     <div class="title">  
+       <h1 >Diabetes Prediction</h1>  
+     </div>  
+
+
+     <div class="info">
+      <h2 class="attinfo">Attribute Information </h2>
+      <p>
+        Matrix column entries (attributes):
+        name - ASCII subject name and recording number
+        MDVP:Fo(Hz) - Average vocal fundamental frequency
+        
+       
+        
+        
+       
+        status - The health status of the subject (one) - Parkinson's, (zero) - healthy
+        
+       
+        spread1,spread2,PPE - Three nonlinear measures of fundamental frequency variation</p>
+     </div>
+     <div class="form">  
+
+       
+      
+        {% csrf_token %}
+       <div class="input_field">  
+         <label>MDVP:Fo(Hz)</label>  
+         <input id="Fo" name="Fo" class="input_text">  
+         <br/>  <i style="font-size: 10px; color: white;">MDVP:Fo(Hz)</i>  
+       </div>  
+       <div class="input_field">  
+         <label>MDVP:Fhi(Hz)</label>  
+          <input  name="Fhi" id="Fhi" class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;"></i>  
+        </div>  
+        <div class="input_field">  
+         <label>MDVP:Flo(Hz)</label>  
+          <input  name="Flo" id="Flo" class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;">(Enter Single Value)</i>  
+        </div>  
+        <div class="input_field">  
+         <label>MDVP:Jitter(%)</label>  
+          <input name="Jitter_perc" id="Jitter_perc"  class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;">(Enter Percentage Value)</i>  
+        </div>  
+        <div class="input_field">  
+         <label>MDVP:Jitter(Abs)</label>  
+          <input name="Jitter" id="Jitter" class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;"></i>  
+        </div>  
+        <div class="input_field">  
+         <label>MDVP:RAP</label>  
+          <input name="RAP" id="RAP" class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;"></i>  
+        </div>  
+        <div class="input_field">  
+         <label>MDVP:PPQ</label>  
+          <input name="PPQ" id="PPQ"  class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;"></i>  
+        </div>  
+        <div class="input_field">  
+         <label>Jitter:DDP</label>  
+          <input name="DDP" id="DDP"  class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div>
+        <label>MDVP:Shimmer</label>  
+            <input name="Shimmer" id="Shimmer"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div>
+        <label>MDVP:Shimmer(dB)</label>  
+            <input name="Shimmerdb" id="Shimmerdb"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div>   
+        <label>Shimmer:APQ3</label>  
+            <input name="APQ3" id="APQ3"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div>  
+        <label>Shimmer:APQ5</label>  
+            <input name="APQ5" id="APQ5"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+            </div> 
+        <label>MDVP:APQ</label>  
+            <input name="APQ" id="APQ"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div> 
+        <label>Shimmer:DDA</label>  
+            <input name="DDA" id="DDA"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div> 
+
+        <label>NHR</label>  
+            <input name="NHR" id="NHR"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div> 
+        <label>HNR</label>  
+            <input name="HNR" id="HNR"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div> 
+        <label>RPDE</label>  
+            <input name="RPDE" id="RPDE"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div> 
+        <label>DFA</label>  
+            <input name="DFA" id="DFA"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div> 
+        <label>spread1</label>  
+            <input name="spread1" id="spread1"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div> 
+        <label>spread2</label>  
+            <input name="spread2" id="spread2"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div> 
+        <label>D2</label>  
+            <input name="D2" id="D2"  class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div> 
+        <label>PPE</label>  
+            <input name="PPE" id="PPE"   class="input_text">  
+            <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div> 
+        
+        
+          
+        <div class="input_field">  
+         <input type="submit" style="color:black; background: skyblue;" id="submit" value="SUBMIT">  
+       </div> 
+       {% if result %}
+          <h1>{{result}}</h1>
+       {% endif %}
+      
+       
+     </div>  
+   </div>  
+ </form>  
+ </body>  
+ </html>  

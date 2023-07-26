@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+}
+body{
+    background: url('/static/img/Diabetes_poster.jpg')no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+form{
+    max-width:500px;
+  margin:2rem auto;
+  border:4px solid #6ba8e1;
+  padding:2rem;
+  border-radius:5px;
+}
+label{
+    display:block;
+    padding:1rem 0 .25rem;
+    text-transform:uppercase;
+    font-size:14px;
+  }
+  input, textarea{
+    display:block;
+    width:100%;
+    border:2px solid #2980B9;
+    padding:.5rem;
+    font-size:18px;
+    border-radius:5px;
+  }

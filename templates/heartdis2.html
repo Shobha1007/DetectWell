@@ -1,0 +1,249 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Heart Disease Predictor</title>
+    <meta property="og:title" content="Spiffy Naive Coyote" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="{% static 'style/heartstyle.css' %}" />
+  </head>
+  <body>
+    <div>
+      <link href="{% static 'style/hearthome.css' %}" rel="stylesheet" />
+
+      <div class="home-container">
+        <div class="home-container01">
+          <h1 class="head">Heart Disease Predictor</h1>
+          <button class="home-button button"  onclick="window.location.href = '/'">Home</button>
+        </div>
+        <div class="home-container02">
+          <h1 class="home-text01">Attribute Information</h1>
+          <ul class="home-ul list">
+                
+            <li class="list-item"><span>Age: Age</span></li>
+            <li class="list-item"><span>Sex: Sex (1 = male; 0 = female)</span></li>
+            <li class="list-item"><span>ChestPain: Chest pain (typical, asymptotic, nonanginal, nontypical)</span>
+            <li class="list-item"><span>RestBP: Resting blood pressure</span>
+            <li class="list-item"><span>Chol: Serum cholestoral in mg/dl</span>
+            <li class="list-item"><span>Fbs: Fasting blood sugar > 120 mg/dl (1 = true; 0 = false)</span>
+            <li class="list-item"><span>RestECG: Resting electrocardiographic results (values 0,1,2)</span>
+            <li class="list-item"><span>MaxHR: Maximum heart rate achieved</span>
+            <li class="list-item"><span>ExAng: Exercise induced angina (1 = yes; 0 = no)</span>
+            <li class="list-item"><span>Oldpeak: ST depression induced by exercise relative to rest</span>
+            <li class="list-item"><span>Slope: Slope of the peak exercise ST segment</span>
+            <li class="list-item"><span>Ca: Number of major vessels colored by flourosopy (0 - 3)</span>
+            <li class="list-item"><span>Thal: (3 = normal; 6 = fixed defect; 7 = reversable defect)</span>
+
+
+            
+          </ul>
+          <img
+            src="{% static 'img/heartbg.jpg' %}"
+            alt="image"
+            class="home-image"
+          />
+
+          
+        </div>
+        <div class="home-container04">
+          <div class="home-container05">
+            <form class="home-form"
+            method="POST">
+                {% csrf_token%}
+              <h1 class="home-text05">Fill Details</h1>
+              <div class="homeContainers">
+              <div class="home-container06 hm" >
+                <div class="home-container07 lefthomecontainers" >
+                  <label class="home-text06" >Age</label>
+                  <input
+                    name="age"
+                    id="age"
+                    type="number"
+                    min="0"
+                    placeholder="age"
+                    class="home-textinput input"
+                  />
+                </div>
+                <div class="home-container08">
+                  <label class="home-text07">Sex</label>
+                  <input
+                    type="number"
+                    name="sex" id="sex"
+                    placeholder="(1 = male; 0 = female)"
+                    min="0"
+                    max="1"
+                    class="home-textinput01 input"
+                  />
+                </div>
+              </div>
+              <div class="home-container09 hm">
+                <div class="home-container10  lefthomecontainers" >
+                  <label class="home-text08">ChestPain</label>
+                  <input
+                    type="number"
+                    name="cp" id="cp" min="0" max="3"
+                    placeholder="Enter Single Value From Range 0-3(typical, asymptotic, nonanginal, nontypical)"
+                    
+                    class="home-textinput02 input"
+                  />
+                </div>
+                <div class="home-container11">
+                  <label class="home-text09">RestBP</label>
+                  <input
+                    name="trestbps" id="trestbps"
+                    type="number"
+                    placeholder="Enter Non-Decimal Value"
+                    class="home-textinput03 input"
+                  />
+                </div>
+              </div>
+              <div class="home-container12 hm">
+                <div class="home-container13  lefthomecontainers" >
+                  <label class="home-text10">Chol</label>
+                  <input
+                    name="chol" id="chol" 
+                    type="number"
+                    placeholder="Enter Non-Decimal Value"
+                    class="home-textinput04 input"
+                  />
+                </div>
+                <div class="home-container14">
+                  <label class="home-text11">Fbs</label>
+                  <input
+                    min="0" max="1" name="fbs" id="fbs"
+                    type="number"
+                    placeholder="(1 = True; 0 = False)"
+                    class="home-textinput05 input"
+                  />
+                </div>
+              </div>
+              <div class="home-container15 hm">
+                <div class="home-container16  lefthomecontainers">
+                  <label class="home-text12">RestECG</label>
+                  <input
+                    name="restecg" min="0" max="2" id="restecg"
+                    type="number"
+                    placeholder="Enter Single Value From Range 0-2"
+                    class="home-textinput06 input"
+                  />
+                </div>
+                <div class="home-container17">
+                  <label class="home-text13">MaxHR</label>
+                  <input
+                  name="thalach" id="thalach" 
+                  min="0"
+                    type="number"
+                    placeholder="Enter Non-Decimal Value"
+                    class="home-textinput07 input"
+                  />
+                </div>
+              </div>
+              <div class="home-container18 hm">
+                <div class="home-container19  lefthomecontainers" >
+                  <label class="home-text14">ExAng</label>
+                  <input
+                    min="0" max="1" name="exang" id="exang"
+                    type="number"
+                    placeholder="Exercise: 1 = YES; 0 = NO"
+                    class="home-textinput08 input"
+                  />
+                </div>
+                <div class="home-container20">
+                  <label class="home-text15">Oldpeak</label>
+                  <input
+                    name="oldpeak" id="oldpeak" min="0" step="0.01"
+                    type="number"
+                    placeholder="Enter Decimal Value"
+                    class="home-textinput09 input"
+                  />
+                </div>
+              </div>
+              <div class="home-container21 hm">
+                <div class="home-container22  lefthomecontainers" >
+                  <label class="home-text16">Slope</label>
+                  <input
+                    min="0" max="2" name="slope" id="slope"
+                    type="number"
+                    placeholder="Enter Single Value From Range 0-2"
+                    class="home-textinput10 input"
+                  />
+                </div>
+                <div class="home-container23">
+                  <label class="home-text17">Ca</label>
+                  <input
+                    name="ca" min="0" max="4" id="ca"
+                    type="number"
+                    placeholder="Enter Single Value From Range 0-4"
+                    class="home-textinput11 input"
+                  />
+                </div>
+              </div>
+              <div class="home-container24 hm">
+                <div class="home-container25  lefthomecontainers" >
+                  <label class="home-text18">Thal</label>
+                  <input
+                    name="thal" min="0" max="3" id="thal"
+                    type="number"
+                    placeholder="Enter Single Value From Range 0-3"
+                    class="home-textinput12 input"
+                  />
+                </div>
+                <div class="home-container26" style="display:none">
+                  <label class="home-text19">Label</label>
+                  <input
+                    type="number"
+                    placeholder="placeholder"
+                    class="home-textinput13 input"
+                  />
+                </div>
+              </div>
+            </div>
+              
+              <div class="home-container40"></div>
+              <button type = "submit "class="home-button1 button"  value="SUBMIT">SUBMIT</button>
+            </form>
+          </div>
+        </div>
+        <div class="home-container41">
+        {% if result %}
+            <h1>{{result}}</h1>
+         {% endif %}
+          
+        </div>
+        <div class="home-container42">
+          <span class="home-text29"><h1>Thanks For Visiting</h1></span>
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- <title>ML MEDICAL DIAGNOSIS</title> -->
+      <link rel="stylesheet" href="{% static 'style\style.css'%}">
+   </head>
+   <body>
+      <div class="cards">
+         <h2 class="header">
+            ML MEDICAL DIAGNOSIS
+         </h2>
+         <div class="services">
+            <div class="content content-1">
+               <div class="fab fa-heart"></div>
+               <h2>
+                  Heart Disease Prediction
+               </h2>
+               <p></p>
+               <a href="/medical/heartdis">Click Here To Check</a>
+            </div>
+            <div class="content content-2">
+               <div class="fab fa-diabetes"></div>
+               <h2>
+                  Diabetic Disease Prediction
+               </h2>
+               <p></p>
+               <a href="/medical/diabetes">Click Here To Check</a>
+            </div>
+            <div class="content content-3">
+               <div class="fab fa-parkinson"></div>
+               <h2>
+                  Parkinson's Disease Prediction
+               </h2>
+               <p></p>
+               <a href="/medical/parkinsons">Click Here To Check</a>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

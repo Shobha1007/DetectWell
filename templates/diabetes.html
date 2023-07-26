@@ -1,0 +1,75 @@
+{% load static %}
+<html lang="en">  
+ <head>  
+  
+   <meta charset="UTF-8">  
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+ 
+ <link rel="stylesheet" href="{ % static 'style\diabetes.css' %}">
+   <title>Diabetes Prediction</title>  
+ </head>  
+ 
+ <body>  
+ <form method="POST">  
+   <div class="wrapper">  
+     <div class="title">  
+       <h1 >Diabetes Prediction</h1>  
+     </div>  
+     <div class="form">  
+      
+        {% csrf_token %}
+       <div class="input_field">  
+         <label>AGE</label>  
+         <input type="number" id="age" min="0" max="150" name="age" class="input_text">  
+         <br/>  <i style="font-size: 10px; color: white;">(Age: 1 - 150)</i>  
+       </div>  
+       <div class="input_field">  
+         <label>PREGNANCIES</label>  
+          <input type="number" min="0" max="10" name="Pregnancies" id="Pregnancies" class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;"></i>  
+        </div>  
+        <div class="input_field">  
+         <label>GLUCOSE</label>  
+          <input type="number" name="Glucose" id="Glucose" min="0" class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;">(Enter Single Value)</i>  
+        </div>  
+        <div class="input_field">  
+         <label>BLOOD PRESSURE</label>  
+          <input name="BloodPressure" id="BloodPressure" type="number" min="0" step="1" class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div>  
+        <div class="input_field">  
+         <label>SKIN THICKNESS</label>  
+          <input name="SkinThickness" id="SkinThickness" type="number" min="0" step="1" class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div>  
+        <div class="input_field">  
+         <label>INSULIN</label>  
+          <input type="number" min="0" name="Insulin" id="Insulin" class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;"></i>  
+        </div>  
+        <div class="input_field">  
+         <label>BMI</label>  
+          <input type="number" name="BMI" min="0" id="BMI" step = "0.01" class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;"></i>  
+        </div>  
+        <div class="input_field">  
+         <label>DIABETES PEDIGREE FUNCTION</label>  
+          <input name="DiabetesPedigreeFunction" id="DiabetesPedigreeFunction" type="number" min="0" step=".0001" class="input_text">  
+          <br/>  <i style="font-size: 10px; color: white;">(Enter Non-Decimal Value)</i>  
+        </div>  
+          
+        <div class="input_field">  
+         <input type="submit" style="color:black; background: skyblue;" id="submit" value="SUBMIT">  
+       </div> 
+       {% if result %}
+          <h1>{{result}}</h1>
+       {% endif %}
+      
+       
+     </div>  
+   </div>  
+ </form>  
+ </body>  
+ </html>
